@@ -1,0 +1,8 @@
+<% if @expense.errors.empty? %>
+	var message = "<%= @message %>";
+	$('#expense').modal('hide');
+	location.reload();
+	alert(message);
+<% else %>
+	$('#ExpenseErrors').html('<%= @expense.errors.full_messages[0] %>');
+<% end %>

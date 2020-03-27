@@ -1,0 +1,59 @@
+<div id="expense" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <%= form_for @expense, html: {class: "modal-content"}, remote: true do |e| %>
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Gasto</h4>
+      </div>
+      
+      <span class="text-danger" id="ExpenseErrors"></span>
+
+      <div class="modal-body">
+        <div class="form-group row">
+          <div class="col-xs-6">
+          <% type_options = Array.new() %>
+          <% @types.each do |t| %>
+            <% temp = Array.new() %>
+            <% temp.push t.typename,t.id %>
+            <% type_options.push temp %>
+          <% end %>
+          Tipo: <%= e.select(:type_id, type_options, {}, {class: "form-control" })%>
+          </div>
+
+          <div class="col-xs-6">
+          Fecha: <%= e.date_field :date, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          Concepto: <%= e.text_field :concept, class: "form-control"  %>
+        </div>
+        
+        <div class="form-group row">
+          <div class="col-xs-6">
+            <% cat_options = Array.new() %>
+            <% @categories.each do |c| %>
+              <% temp = Array.new() %>
+              <% temp.push c.catname,c.id %>
+              <% cat_options.push temp %>
+            <% end %>
+            Categoría: <%= e.select(:category_id, cat_options, {}, {class: "form-control" }) %>
+          </div>
+            
+          <div class="col-xs-6">
+            Valor: <%= e.number_field :amount, class: "form-control" %>
+          </div>
+        </div>
+        
+      </div>
+          
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <%= e.submit modal_button, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+      
+  </div>
+</div>

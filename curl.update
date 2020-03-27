@@ -1,0 +1,1 @@
+curl -i -X PATCH -d '{ "concept": "Concepto de Prueba 3333"}' -H "Content-Type: application/json" http://localhost:3000/api/v1/expenses/1050

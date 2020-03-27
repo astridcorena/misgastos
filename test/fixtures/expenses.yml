@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: expenses
+#
+#  id          :integer          not null, primary key
+#  type_id     :integer
+#  category_id :integer
+#  date        :date
+#  concept     :string
+#  amount      :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_id: 1
+  category_id: 1
+  date: 2018-03-26
+  concept: MyString
+  amount: 1
+
+two:
+  type_id: 1
+  category_id: 1
+  date: 2018-03-26
+  concept: MyString
+  amount: 1
